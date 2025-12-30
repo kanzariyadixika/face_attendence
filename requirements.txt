@@ -1,3 +1,5 @@
 Flask
 opencv-contrib-python
 numpy
+scikit-learn
+gunicorn
