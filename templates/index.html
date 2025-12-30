@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card" style="text-align: center;">
+    <h1 class="page-title">Mark Attendance</h1>
+
+    <div class="camera-container">
+        <video id="video" autoplay playsinline></video>
+    </div>
+
+    <div id="attendance-result" style="margin-bottom: 1.5rem; min-height: 60px;">
+        <!-- Results will appear here -->
+    </div>
+
+    <button id="attendance-btn" class="btn btn-primary">
+        Mark Attendance
+    </button>
+</div>
+{% endblock %}

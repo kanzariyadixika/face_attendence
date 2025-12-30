@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="page-title">Admin Dashboard</h1>
+
+<div class="card">
+    <h2>Registered Users</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user['id'] }}</td>
+                    <td>{{ user['name'] }}</td>
+                    <td>
+                        <a href="{{ url_for('delete_user', id=user['id']) }}" class="btn btn-danger"
+                            style="padding: 0.5rem 1rem; font-size: 0.875rem;"
+                            onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="3">No users found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Attendance Logs</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Name</th>
+                    <th>ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in attendance %}
+                <tr>
+                    <td>{{ log['date'] }}</td>
+                    <td>{{ log['time'] }}</td>
+                    <td>{{ log['name'] }}</td>
+                    <td>{{ log['user_id'] }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4">No attendance records yet.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
